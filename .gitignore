@@ -1,0 +1,38 @@
+# Compiled binaries and libraries
+bin/
+lib/
+build/
+*.out
+*.o
+*.so
+*.dylib
+*.dll
+*.a
+*.dSYM/
+
+# Release binary archives (attached via GitHub Releases rather than committed to source history)
+release/*.zip
+
+# Checkpoints and temporary artifacts
+*.ckpt
+rhea_codegen_*.cpp
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+
+# Rust build directory
+target/
+
+# OS and Editor metadata
+.DS_Store
+Thumbs.db
+*~
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/

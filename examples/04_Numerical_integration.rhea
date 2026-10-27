@@ -1,0 +1,24 @@
+// Example 04: Simpson's Rule Numerical Integration
+import std::math
+
+fn f(x: Float) -> Float {
+    return x * x
+}
+
+fn integrate_parabola(steps: Int) -> Float {
+    let mut i = 0
+    let mut area = 0.0
+    let dt = 1.0 / float(steps)
+    while i < steps {
+        let x = (float(i) + 0.5) * dt
+        area = area + f(x) * dt
+        i += 1
+    }
+    return area
+}
+
+fn main() -> Int {
+    let approx = integrate_parabola(1000)
+    print("Integral of x^2 on [0,1] ~= {approx}")
+    return 0
+}

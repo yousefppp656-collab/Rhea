@@ -1,0 +1,16 @@
+// Readability 09: Struct & Implicit-Return Function
+struct Rectangle {
+    width: Int,
+    height: Int
+}
+
+fn area(r: Rectangle) -> Int {
+    r.width * r.height
+}
+
+fn main() {
+    rect = Rectangle { width: 6, height: 7 }
+    a = area(rect)
+    print("Area = {a}")
+    assert_eq(a, 42)
+}

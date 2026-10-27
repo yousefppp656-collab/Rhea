@@ -1,0 +1,16 @@
+// Example 03: Native C++20 Tensor Operations & Softmax
+import std::ai
+
+fn main() -> Int {
+    let a = std::ai.tensor([2, 2], [1.0, 2.0, 3.0, 4.0])
+    let b = std::ai.tensor([2, 2], [2.0, 0.0, 1.0, 2.0])
+    let c = std::ai.matmul(a, b)
+    let total = std::ai.sum(c)
+    print("Matmul sum = {total}")
+    assert_eq(total, 26.0)
+
+    let probs = std::ai.softmax(c)
+    let p_sum = std::ai.sum(probs)
+    print("Softmax row sum (2 rows) = {p_sum}")
+    return 0
+}

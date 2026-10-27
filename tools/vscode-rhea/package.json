@@ -1,0 +1,57 @@
+{
+  "name": "vscode-rhea",
+  "displayName": "Rhea Programming Language",
+  "description": "Official syntax highlighting, minimalist geometric R file icons (dark & light themes), and LSP integration for the Rhea programming language",
+  "version": "0.13.1",
+  "license": "MIT",
+  "publisher": "rhea-lang",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yousefppp656-collab/Rhea.git"
+  },
+  "icon": "icons/rhea-icon-128.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "rhea",
+        "aliases": [
+          "Rhea",
+          "rhea"
+        ],
+        "extensions": [
+          ".rhea",
+          ".rh"
+        ],
+        "filenames": [
+          "rhea.toml",
+          "rhea.lock"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/rhea-file-icon-light.svg",
+          "dark": "./icons/rhea-file-icon-dark.svg"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "rhea",
+        "scopeName": "source.rhea",
+        "path": "./syntaxes/rhea.tmLanguage.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "rhea-icons",
+        "label": "Rhea File Icons",
+        "path": "./file-icon-theme.json"
+      }
+    ]
+  }
+}

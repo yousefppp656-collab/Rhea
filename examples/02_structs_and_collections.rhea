@@ -1,0 +1,24 @@
+// Example 02: Structs, Lists, and Maps
+struct Point {
+    x: Int,
+    y: Int
+}
+
+fn manhattan(p: Point) -> Int {
+    return abs(p.x) + abs(p.y)
+}
+
+fn main() -> Int {
+    let pt = Point { x: -7, y: 12 }
+    let dist = manhattan(pt)
+    print("Manhattan distance = {dist}")
+    assert_eq(dist, 19)
+
+    let nums = [10, 20, 30, 40]
+    let mut sum = 0
+    for v in nums {
+        sum += v
+    }
+    assert_eq(sum, 100)
+    return 0
+}

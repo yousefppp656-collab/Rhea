@@ -1,0 +1,19 @@
+[package]
+name = "rhea_cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+rhea_span = { path = "../rhea_span" }
+rhea_diagnostics = { path = "../rhea_diagnostics" }
+rhea_lexer = { path = "../rhea_lexer" }
+rhea_ast = { path = "../rhea_ast" }
+rhea_parser = { path = "../rhea_parser" }
+rhea_sema = { path = "../rhea_sema" }
+rhea_ir = { path = "../rhea_ir" }
+rhea_vm = { path = "../rhea_vm" }
+rhea_interp = { path = "../rhea_interp" }
+rhea_runtime = { path = "../rhea_runtime" }
+rhea_stdlib = { path = "../rhea_stdlib" }
+rhea_pkg = { path = "../rhea_pkg" }

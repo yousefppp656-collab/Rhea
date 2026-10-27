@@ -1,0 +1,39 @@
+// Example 01: Fibonacci & Prime Number Generation
+fn fib(n: Int) -> Int {
+    if n <= 1 {
+        return n
+    }
+    let mut a = 0
+    let mut b = 1
+    let mut i = 2
+    while i <= n {
+        let next = a + b
+        a = b
+        b = next
+        i += 1
+    }
+    return b
+}
+
+fn is_prime(n: Int) -> Bool {
+    if n < 2 {
+        return false
+    }
+    let mut d = 2
+    while d * d <= n {
+        if n % d == 0 {
+            return false
+        }
+        d += 1
+    }
+    return true
+}
+
+fn main() -> Int {
+    let f10 = fib(10)
+    print("fib(10) = {f10}")
+    assert_eq(f10, 55)
+    assert(is_prime(97), "97 must be prime")
+    assert(!is_prime(100), "100 is not prime")
+    return 0
+}

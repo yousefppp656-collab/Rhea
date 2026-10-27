@@ -1,0 +1,34 @@
+{
+  "iconDefinitions": {
+    "rhea_dark": {
+      "iconPath": "./icons/rhea-file-icon-dark.svg"
+    },
+    "rhea_light": {
+      "iconPath": "./icons/rhea-file-icon-light.svg"
+    }
+  },
+  "fileExtensions": {
+    "rhea": "rhea_dark",
+    "rh": "rhea_dark"
+  },
+  "fileNames": {
+    "rhea.toml": "rhea_dark",
+    "rhea.lock": "rhea_dark"
+  },
+  "languageIds": {
+    "rhea": "rhea_dark"
+  },
+  "light": {
+    "fileExtensions": {
+      "rhea": "rhea_light",
+      "rh": "rhea_light"
+    },
+    "fileNames": {
+      "rhea.toml": "rhea_light",
+      "rhea.lock": "rhea_light"
+    },
+    "languageIds": {
+      "rhea": "rhea_light"
+    }
+  }
+}

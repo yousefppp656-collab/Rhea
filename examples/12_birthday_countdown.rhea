@@ -1,0 +1,13 @@
+// Example 12: Real Monotonic Timing & Simple Birthday Countdown (Prompt 1 Section 5.3)
+fn countdown(start: Int) {
+    for number in 1..=start {
+        print(number)
+        sleep(1s)
+    }
+    print("Happy Birthday!")
+}
+
+fn main() {
+    print("Countdown starting...")
+    countdown(5)
+}

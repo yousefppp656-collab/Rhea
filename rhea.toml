@@ -1,0 +1,18 @@
+[package]
+name = "rhea-core-showcase"
+version = "0.13.1"
+edition = "2026"
+authors = ["Rhea Engineering Team"]
+description = "Official Rhea v0.13.1 language workspace and standard showcase"
+entry = "examples/01_fibonacci_and_primes.rhea"
+
+[dependencies]
+std_math = { version = "0.13.1", path = "stdlib/math" }
+std_ai = { version = "0.13.1", path = "stdlib/ai" }
+std_io = { version = "0.13.1", path = "stdlib/io" }
+std_time = { version = "0.13.1", path = "stdlib/time" }
+
+[profile.release]
+opt_level = 3
+bounds_checks = true
+nan_checks = true

@@ -1,0 +1,25 @@
+// Example 07: Algebraic Enums & Pattern Matching
+enum ResultCode {
+    Ok(Int),
+    Err(String)
+}
+
+fn describe(r: ResultCode) -> Int {
+    let out = match r {
+        ResultCode::Ok(v) => v * 2,
+        ResultCode::Err(msg) => -1,
+        _ => 0
+    }
+    return out
+}
+
+fn main() -> Int {
+    let ok_val = ResultCode::Ok(21)
+    let err_val = ResultCode::Err("timeout")
+    let a = describe(ok_val)
+    let b = describe(err_val)
+    print("Pattern match results: {a}, {b}")
+    assert_eq(a, 42)
+    assert_eq(b, -1)
+    return 0
+}

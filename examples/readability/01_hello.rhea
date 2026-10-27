@@ -1,0 +1,4 @@
+// Readability 01: Hello World
+fn main() {
+    print("Hello, Rhea!")
+}

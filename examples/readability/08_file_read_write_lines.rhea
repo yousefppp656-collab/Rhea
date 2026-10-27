@@ -1,0 +1,13 @@
+// Readability 08: File Read & Write Line Count
+import std::fs
+import std::string
+
+fn main() {
+    path = "/tmp/rhea_readability_08.txt"
+    std::fs.write_text(path, "alpha\nbeta\ngamma")
+    content = std::fs.read_text(path)
+    lines = std::string.split(content, "\n")
+    count = len(lines)
+    print("Line count = {count}")
+    assert_eq(count, 3)
+}

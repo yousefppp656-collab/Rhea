@@ -1,0 +1,8 @@
+[package]
+name = "rhea_stdlib"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+rhea_runtime = { path = "../rhea_runtime" }

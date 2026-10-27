@@ -1,0 +1,44 @@
+// Example 15: Test-Driven Program with UTF-8 Strings, Collections & Error Recovery (v0.10.0)
+import std::string
+import std::collections
+
+fn analyze_scores(raw_scores: List<Int>) -> Map<String, Int> {
+    sorted = sort(raw_scores)
+    n = len(sorted)
+    mut total = 0
+    for s in sorted {
+        total += s
+    }
+    min_s = sorted[0]
+    max_s = sorted[n - 1]
+    return {"count": n, "min": min_s, "max": max_s, "sum": total}
+}
+
+fn main() {
+    scores = [88, 72, 95, 64, 91]
+    report = analyze_scores(scores)
+    assert_eq(report["count"], 5)
+    assert_eq(report["min"], 64)
+    assert_eq(report["max"], 95)
+    assert_eq(report["sum"], 410)
+
+    greeting = "Rhea αβγ"
+    chars = std::string.char_count(greeting)
+    bytes = len(greeting)
+    print("UTF-8 char_count={chars} byte_len={bytes}")
+    assert_eq(chars, 8)
+    assert(bytes > chars)
+
+    joined = std::string.join(["alpha", "beta", "gamma"], "::")
+    assert_eq(joined, "alpha::beta::gamma")
+
+    mut caught_missing_key = false
+    try {
+        bad = report["nonexistent_metric"]
+        print(bad)
+    } catch err {
+        caught_missing_key = true
+        print("Safely caught missing map key: {err}")
+    }
+    assert(caught_missing_key)
+}

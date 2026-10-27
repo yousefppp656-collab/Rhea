@@ -1,0 +1,63 @@
+name: Rhea CI
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build, Test, Differential & ASan (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Verify C++20 compiler and Python 3
+        run: |
+          c++ --version
+          python3 --version
+
+      - name: Clean build C++20 compiler, VM, and native runtime
+        run: |
+          make clean
+          make all
+          ./bin/rhea version
+
+      - name: Verify package lockfile integrity
+        run: |
+          ./bin/rhea pkg verify
+
+      - name: Validate SVG, PNG, ICNS, ICO & desktop integration assets
+        run: |
+          python3 tools/generate_icons.py
+          python3 tools/validate_icons.py
+
+      - name: Run C++20 native kernel and autodiff tests
+        run: |
+          ./bin/rhea_cpp_tests
+
+      - name: Run AddressSanitizer and UndefinedBehaviorSanitizer suite
+        run: |
+          make test-asan
+
+      - name: Run 32-suite cross-backend differential conformance harness
+        run: |
+          python3 tests/differential_harness.py
+
+      - name: Run full 165-test end-to-end verification suite
+        run: |
+          ./bin/rhea test
+
+      - name: Check example formatting consistency
+        run: |
+          ./bin/rhea lint examples/01_fibonacci_and_primes.rhea

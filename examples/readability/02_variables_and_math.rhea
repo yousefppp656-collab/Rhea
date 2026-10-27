@@ -1,0 +1,9 @@
+// Readability 02: Concise Variables & Arithmetic
+fn main() {
+    price = 25
+    quantity = 4
+    mut total = price * quantity
+    total += 10
+    print("Total: {total}")
+    assert_eq(total, 110)
+}

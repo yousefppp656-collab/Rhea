@@ -1,0 +1,12 @@
+// Example 08: String Interpolation & Compound Assignments
+fn main() -> Int {
+    let lang = "Rhea"
+    let mut score = 10
+    score += 15
+    score *= 2
+    score -= 8
+    let summary = "Language: {lang}, Final Score: {score}"
+    print(summary)
+    assert_eq(score, 42)
+    return 0
+}

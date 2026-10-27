@@ -1,0 +1,17 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\.rhea]
+@="Rhea.SourceFile"
+"Content Type"="text/x-rhea"
+"PerceivedType"="text"
+
+[HKEY_CURRENT_USER\Software\Classes\.rh]
+@="Rhea.SourceFile"
+"Content Type"="text/x-rhea"
+"PerceivedType"="text"
+
+[HKEY_CURRENT_USER\Software\Classes\Rhea.SourceFile]
+@="Rhea Source File"
+
+[HKEY_CURRENT_USER\Software\Classes\Rhea.SourceFile\DefaultIcon]
+@="%USERPROFILE%\\rhea\\assets\\icons\\rhea.ico,0"

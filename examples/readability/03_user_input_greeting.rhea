@@ -1,0 +1,5 @@
+// Readability 03: User Input & Greeting
+fn main() {
+    name = trim(input("What's your name? "))
+    print("Welcome to Rhea, {name}!")
+}

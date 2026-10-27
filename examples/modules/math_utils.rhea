@@ -1,0 +1,21 @@
+// Local Module 1: examples/modules/math_utils.rhea
+module math_utils
+
+priv fn secret_offset() -> Int {
+    7
+}
+
+pub fn clamp_int(x: Int, lo: Int, hi: Int) -> Int {
+    if x < lo {
+        return lo
+    }
+    if x > hi {
+        return hi
+    }
+    x
+}
+
+pub fn calibrated_score(raw: Int) -> Int {
+    adjusted = raw + secret_offset()
+    clamp_int(adjusted, 0, 100)
+}

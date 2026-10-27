@@ -1,0 +1,14 @@
+// Readability 07: Word Frequency Counter
+import std::string
+
+fn main() {
+    words = std::string.split("rhea ai fast rhea safe rhea", " ")
+    mut rhea_count = 0
+    for w in words {
+        if w == "rhea" {
+            rhea_count += 1
+        }
+    }
+    print("rhea frequency = {rhea_count}")
+    assert_eq(rhea_count, 3)
+}

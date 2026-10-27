@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="text/x-rhea">
+    <comment>Rhea Programming Language Source File</comment>
+    <sub-class-of type="text/plain"/>
+    <glob pattern="*.rhea"/>
+    <glob pattern="*.rh"/>
+    <icon name="text-x-rhea"/>
+  </mime-type>
+</mime-info>

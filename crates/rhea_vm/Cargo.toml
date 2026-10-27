@@ -1,0 +1,9 @@
+[package]
+name = "rhea_vm"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+rhea_ir = { path = "../rhea_ir" }
+rhea_runtime = { path = "../rhea_runtime" }

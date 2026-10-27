@@ -1,0 +1,38 @@
+// Example 14: Cross-Backend Maps, JSON Processing, Paths & CLI Utilities (v0.10.0)
+import std::collections
+import std::json
+import std::path
+import std::fs
+
+fn main() {
+    mut metrics = {"requests": 120, "errors": 3, "latency_ms": 42}
+    metrics["requests"] = 125
+    metrics["cached"] = 80
+
+    assert(has_key(metrics, "cached"))
+    assert(!has_key(metrics, "missing"))
+
+    ks = keys(metrics)
+    num_keys = len(ks)
+    req_cnt = metrics["requests"]
+    cached_cnt = metrics["cached"]
+    print("Map keys ({num_keys}): {ks}")
+    print("Requests={req_cnt} Cached={cached_cnt}")
+
+    json_str = std::json.stringify(metrics)
+    print("Serialized JSON: {json_str}")
+    decoded = std::json.parse(json_str)
+    assert_eq(decoded["requests"], 125)
+    assert_eq(decoded["errors"], 3)
+
+    full_path = std::path.join("/tmp", "rhea_ex14_config.json")
+    assert_eq(std::path.basename(full_path), "rhea_ex14_config.json")
+    assert_eq(std::path.extension(full_path), ".json")
+
+    std::fs.write_text(full_path, json_str)
+    assert(std::fs.exists(full_path))
+    raw_reload = std::fs.read_text(full_path)
+    reloaded = std::json.parse(raw_reload)
+    assert_eq(reloaded["latency_ms"], 42)
+    std::fs.remove_file(full_path)
+}

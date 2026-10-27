@@ -1,0 +1,12 @@
+// Readability 05: Inclusive Range & Duration Literal Timer
+fn countdown(n: Int) {
+    for i in 1..=n {
+        print("Tick {i}")
+        sleep(10ms)
+    }
+    print("Liftoff!")
+}
+
+fn main() {
+    countdown(3)
+}

@@ -1,0 +1,14 @@
+// Example 10: First-Class Closures & Pipe Operator `|>`
+fn add_ten(x: Int) -> Int { x + 10 }
+fn mul_three(x: Int) -> Int { x * 3 }
+
+fn main() -> Int {
+    let multiplier = 4
+    let scale = |x: Int| x * multiplier
+    let r1 = scale(8)
+    let r2 = 5 |> add_ten |> mul_three
+    print("scale(8) = {r1}, piped = {r2}")
+    assert_eq(r1, 32)
+    assert_eq(r2, 45)
+    return 0
+}

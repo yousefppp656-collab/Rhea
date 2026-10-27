@@ -1,0 +1,25 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/rhea_span",
+    "crates/rhea_diagnostics",
+    "crates/rhea_lexer",
+    "crates/rhea_ast",
+    "crates/rhea_parser",
+    "crates/rhea_sema",
+    "crates/rhea_ir",
+    "crates/rhea_vm",
+    "crates/rhea_interp",
+    "crates/rhea_runtime",
+    "crates/rhea_stdlib",
+    "crates/rhea_pkg",
+    "crates/rhea_cli",
+]
+
+[workspace.package]
+version = "0.13.1"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/yousefppp656-collab/Rhea"
+authors = ["Rhea Language Contributors"]
+description = "Rhea: An experimental statically typed, AI-oriented programming language"

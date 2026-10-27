@@ -1,0 +1,8 @@
+// Local Module 2: examples/modules/geometry.rhea (imports math_utils)
+module geometry
+import math_utils
+
+pub fn clamped_rect_area(w: Int, h: Int) -> Int {
+    raw_area = w * h
+    math_utils.clamp_int(raw_area, 0, 500)
+}

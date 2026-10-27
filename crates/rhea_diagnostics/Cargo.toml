@@ -1,0 +1,8 @@
+[package]
+name = "rhea_diagnostics"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+rhea_span = { path = "../rhea_span" }

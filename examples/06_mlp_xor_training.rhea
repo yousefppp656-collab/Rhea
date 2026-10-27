@@ -1,0 +1,9 @@
+// Example 06: 2-Layer MLP XOR Training via Native C++20 Autodiff & Adam
+import std::ai
+
+fn main() -> Int {
+    let final_loss = std::ai.train_xor_demo(500)
+    print("XOR final MSE loss = {final_loss}")
+    assert(final_loss < 0.01, "XOR MLP must converge below 0.01 MSE")
+    return 0
+}

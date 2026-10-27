@@ -1,0 +1,53 @@
+// Example 13: Multi-Module Resolution, Generics, Lexical Closures & Shadowing (v0.9.4)
+import modules::math_utils
+import modules::geometry
+
+struct Box2D<T> {
+    width: T,
+    height: T
+}
+
+fn identity<T>(value: T) -> T {
+    value
+}
+
+fn first_item<T>(items: List<T>) -> T {
+    items[0]
+}
+
+fn main() {
+    // 1. Cross-module calls (geometry -> math_utils -> priv secret_offset)
+    score = math_utils.calibrated_score(85)
+    area = geometry.clamped_rect_area(20, 30)
+    print("score={score} area={area}")
+    assert_eq(score, 92)
+    assert_eq(area, 500)
+
+    // 2. Generic functions & generic structs
+    id_int = identity(42)
+    id_str = identity("Rhea-v0.9.4")
+    head = first_item([10, 20, 30])
+    b = Box2D { width: 6, height: 7 }
+    box_prod = b.width * b.height
+    print("generics: {id_int} {id_str} {head} {box_prod}")
+    assert_eq(id_int, 42)
+    assert_eq(head, 10)
+    assert_eq(box_prod, 42)
+
+    // 3. Lexical closures with capture-by-value snapshot
+    mut factor = 3
+    multiply = |x: Int| x * factor
+    factor = 99
+    r_closed = multiply(7)
+    print("closure(7)={r_closed} outer_factor={factor}")
+    assert_eq(r_closed, 21)
+
+    // 4. Lexical shadowing in nested block
+    x = 100
+    {
+        let x = 250
+        print("inner_x={x}")
+    }
+    print("outer_x={x}")
+    assert_eq(x, 100)
+}

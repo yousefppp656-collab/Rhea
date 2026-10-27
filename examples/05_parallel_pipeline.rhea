@@ -1,0 +1,20 @@
+// Example 05: Declarative Pipeline & Parallel Loop
+fn step_double(x: Int) -> Int { return x * 2 }
+fn step_offset(x: Int) -> Int { return x + 10 }
+
+pipeline Transform {
+    step_double -> step_offset
+}
+
+fn main() -> Int {
+    let res = Transform(16)
+    print("Pipeline Transform(16) = {res}")
+    assert_eq(res, 42)
+
+    let mut acc = 0
+    parallel for i in 1..=10 {
+        acc += i
+    }
+    assert_eq(acc, 55)
+    return 0
+}

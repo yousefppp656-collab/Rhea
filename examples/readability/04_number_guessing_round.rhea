@@ -1,0 +1,22 @@
+// Readability 04: Single-Round Safe Number Guess Check
+fn check_guess(raw: String, target: Int) -> String {
+    parsed = try_parse_int(raw)
+    if !parsed["ok"] {
+        return "invalid"
+    }
+    g = parsed["value"]
+    if g == target {
+        return "correct"
+    }
+    if g < target {
+        return "low"
+    }
+    return "high"
+}
+
+fn main() {
+    assert_eq(check_guess("abc", 7), "invalid")
+    assert_eq(check_guess("4", 7), "low")
+    assert_eq(check_guess("7", 7), "correct")
+    print("Guess checks passed")
+}

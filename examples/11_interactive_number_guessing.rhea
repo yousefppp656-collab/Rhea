@@ -1,0 +1,58 @@
+// Example 11: Real Interactive Number Guessing Game (Prompt 1 Section 4.2)
+// Reads live user guesses from stdin, validates numeric vs. invalid input safely,
+// handles out-of-range guesses, provides high/low hints, and exits cleanly on win, 'quit', or EOF.
+
+fn main() {
+    secret = 14
+    mut attempts = 0
+    mut won = false
+
+    print("=== Rhea Interactive Number Guessing Game ===")
+    print("Guess the secret number between 1 and 20 (or type 'quit' to exit).")
+
+    while !won {
+        if is_eof() {
+            print("End of input reached. Goodbye!")
+            break
+        }
+
+        raw = input("Enter guess: ")
+        cleaned = lower(trim(raw))
+
+        if cleaned == "" {
+            if is_eof() {
+                print("End of input reached. Goodbye!")
+                break
+            }
+            print("Please enter a number between 1 and 20.")
+            continue
+        }
+
+        if cleaned == "quit" || cleaned == "exit" {
+            print("Quitting game after {attempts} attempt(s). The secret was {secret}.")
+            break
+        }
+
+        parsed = try_parse_int(cleaned)
+        if !parsed["ok"] {
+            print("Invalid input '{raw}': please enter a whole integer.")
+            continue
+        }
+
+        guess = parsed["value"]
+        if guess < 1 || guess > 20 {
+            print("Out of range ({guess}): please guess between 1 and 20.")
+            continue
+        }
+
+        attempts += 1
+        if guess < secret {
+            print("Too low! Try higher.")
+        } else if guess > secret {
+            print("Too high! Try lower.")
+        } else {
+            won = true
+            print("Correct! You guessed {secret} in {attempts} attempt(s)!")
+        }
+    }
+}

@@ -1,0 +1,20 @@
+// Example 09: Structured Try/Catch & File System I/O
+import std::fs
+
+fn main() -> Int {
+    let path = "/tmp/rhea_example_09.txt"
+    std::fs.write_text(path, "Rhea v0.9.3 Verified File IO")
+    let text = std::fs.read_text(path)
+    print("Read from disk: {text}")
+
+    let mut recovered = false
+    try {
+        let bad = 100 / 0
+        print(bad)
+    } catch err {
+        print("Recovered from runtime error: {err}")
+        recovered = true
+    }
+    assert(recovered, "try/catch must recover from division by zero")
+    return 0
+}

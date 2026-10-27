@@ -1,0 +1,11 @@
+[package]
+name = "rhea_parser"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+rhea_span = { path = "../rhea_span" }
+rhea_lexer = { path = "../rhea_lexer" }
+rhea_ast = { path = "../rhea_ast" }
+rhea_diagnostics = { path = "../rhea_diagnostics" }

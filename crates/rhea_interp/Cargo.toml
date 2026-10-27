@@ -1,0 +1,9 @@
+[package]
+name = "rhea_interp"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+rhea_ast = { path = "../rhea_ast" }
+rhea_runtime = { path = "../rhea_runtime" }
